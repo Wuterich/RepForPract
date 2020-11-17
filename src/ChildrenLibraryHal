@@ -1,0 +1,101 @@
+public class ChildrenLibraryHall {
+private String Hallname;
+private ChildrenBook[] book_arr;
+
+public String getHallname() {
+return Hallname;
+}
+
+public ChildrenLibraryHall(String Hallname, int quant){
+this.Hallname = Hallname;
+//ChildrenBook[]
+book_arr = new ChildrenBook[quant];
+
+for(int i = 0; i < book_arr.length; i++){
+book_arr[i] = new ChildrenBook();
+}
+}
+
+public ChildrenLibraryHall(String Hallname, ChildrenBook[] arr){
+this.Hallname = Hallname;
+//ChildrenBook[]
+book_arr = arr;
+}
+
+public int getAllBook(){
+return book_arr.length;
+}
+
+public void showName(){
+for (ChildrenBook childrenBook : book_arr) {
+System.out.println(childrenBook.getName());
+}
+}
+
+public float fullPrice(){
+float Sum = 0.0f;
+for(int i = 0; i < book_arr.length; i++){
+Sum += book_arr[i].getPrice();
+}
+return Sum;
+}
+
+public ChildrenBook getInfo(int i){
+//System.out.println(book_arr[0].getAuthor());
+//book_arr[i].show();
+//System.out.println();
+return book_arr[i];
+}
+
+public void setInfo(int i, ChildrenBook book){
+book_arr[i] = book;
+}
+
+public void addBook(ChildrenBook book){
+
+book_arr = this.addarr(book_arr);
+book_arr[book_arr.length-1] = book;
+}
+
+public void delBook(int x){
+ChildrenBook[] childrenBooks = new ChildrenBook[book_arr.length-1];
+book_arr[x] = null;
+int j = 0;
+for (ChildrenBook childrenBook : book_arr) {
+if (childrenBook != null) {
+childrenBooks[j] = childrenBook;
+j++;
+}
+}
+book_arr = childrenBooks;
+}
+
+private ChildrenBook[] addarr(ChildrenBook[] old){
+int len = old.length;
+ChildrenBook[] newCB = new ChildrenBook[len + 1];
+for (int i = 0; i < old.length; i++) {
+newCB[i] = old[i];
+}
+return newCB;
+}
+
+public ChildrenBook getBestBook(){
+float maxprice = book_arr[0].getPrice();
+ChildrenBook best = book_arr[0];
+for (int i = 1; i < book_arr.length; i++) {
+if(book_arr[i].getPrice() > maxprice)
+best = book_arr[i];
+}
+
+return best;
+}
+
+public void show(int i){
+book_arr[i].show();
+}
+
+public ChildrenBook[] getChildrenBooks() {
+return book_arr;
+}
+
+}
