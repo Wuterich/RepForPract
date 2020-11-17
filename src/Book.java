@@ -30,5 +30,39 @@ public class Book {
         System.out.println(price);
         System.out.println(outyear);
     }
+    
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setOutyear(int outyear) {
+        this.outyear = outyear;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public int getOutyear() {
+        return outyear;
+    }
+    
+}
 
 }
