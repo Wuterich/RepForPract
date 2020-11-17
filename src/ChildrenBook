@@ -1,0 +1,24 @@
+public class ChildrenBook extends Book {
+private int min_age;
+
+public ChildrenBook(){
+super();
+min_age = 0;
+}
+
+public ChildrenBook(String author, int outyear){
+super(author, outyear);
+this.min_age = 0;
+}
+
+public ChildrenBook(String author, String name,
+float price, int outyear, int min_age){
+super(author, name, price, outyear);
+this.min_age = min_age;
+}
+
+public void show(){
+super.show();
+System.out.println(min_age);
+}
+}
